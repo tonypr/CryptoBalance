@@ -38,7 +38,6 @@ def main():
     clients = load_clients(CONFIGS_DIR)
     if len(clients) > 0:
         total_current_value, total_amount_invested = get_totals(clients)
-
         balance = total_current_value - total_amount_invested
         roi = (balance/total_amount_invested) * 100
 

@@ -33,6 +33,10 @@ You'll then have to replace the TODOs in the files in order for the tool to work
 
 After filling in the TODOs, you can re-run the previous command and you'll be able to see the results.
 
+Example results:
+
+![CryptoBalance results](/resources/sample.png?raw=true")
+
 ## Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
