@@ -17,13 +17,19 @@ To run this code locally, you can git clone the repo:
 
 `git clone git@github.com:tonypr/CryptoBalance.git`
 
-### Prerequisites
+Then `cd` into the directory and install the project's dependencies:
 
-You'll need Python 3 installed in your system in order to be able to run the code.
+`cd CryptoBalance && pip3 install -r requirements.txt`
 
-You can install the required dependencies with:
+To run the code, use the following:
 
-`cd cryptobalance && pip3 install -r requirements.txt`
+`python3 main.py`
+
+This will attempt to get your total investment and your current balance. As this is the first time that you will run this, it will set up configuration files for your Coinbase and Gdax accounts. You will find these files under the `config` folder that is generated for you.
+
+You'll then have to replace the TODOs in the files in order for the tool to work. You can generate api keys for this tool on both Coinbase and Gdax. Please only use "read" permissions! I do not want this tool to be able to perform trades on your account so please limit your access to only what is needed for the tool. I'll be reviewing the permissions soon to see which "read" permissions are needed.
+
+After filling in the TODOs, you can re-run the previous command and you'll be able to see the results.
 
 ## Versioning
 
