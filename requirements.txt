@@ -1,0 +1,3 @@
+PyYAML==3.12
+coinbase==2.0.7
+gdax==1.0.6
