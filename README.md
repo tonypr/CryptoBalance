@@ -21,6 +21,8 @@ Then `cd` into the directory and install the project's dependencies:
 
 `cd CryptoBalance && pip3 install -r requirements.txt`
 
+## Using the tool
+
 To run the code, use the following:
 
 `python3 main.py`
