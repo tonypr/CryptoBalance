@@ -37,6 +37,14 @@ Example results:
 
 ![CryptoBalance results](/resources/sample.png?raw=true")
 
+## Security Concerns
+
+You should verify any code that you download online from the internet. I mean, who's to say that running `python3 main.py` doesn't try to install a client on your computer that I control? You should check this code to make sure it meets your standard for what you allow on your computer. Most importantly, you should also be aware of the dependencies of this project. These include:
+- `gdax` library
+- `coinbase` library
+
+These libraries are used in this repo in order to connect to the corresponding servers for each client. However, nothing stops them from changing their code and storing your API keys or storing the results for that matter. This is a huge security concern if you feel that the amount you have invested in cryptocurrencies would make you into a valuable target. I make no guarantee about the intentions of those libraries. In fact, I may replace them with my own functionality here so that there's no external dependency.
+
 ## Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
