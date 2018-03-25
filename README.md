@@ -47,7 +47,7 @@ These libraries are used in this repo in order to connect to the corresponding s
 
 ## Versioning
 
-This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/tonypr/CryptoBalance/tags).
 
 ## License
 
