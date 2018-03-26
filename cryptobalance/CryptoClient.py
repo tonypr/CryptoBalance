@@ -1,3 +1,4 @@
+import time
 class CryptoClient(object):
     def get_amount_invested(self):
         raise NotImplementedError
@@ -9,6 +10,9 @@ class CryptoClient(object):
         amount_invested = self.get_amount_invested()
         current_value = self.get_current_value()
         return current_value, amount_invested
+
+    def get_product_values(self):
+        return {}
 
     @staticmethod
     def setup_config(cls):
