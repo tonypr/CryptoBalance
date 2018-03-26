@@ -26,7 +26,7 @@ class GdaxClient(CryptoClient):
     def get_product_values(self):
         prices = self.get_product_prices()
         values = {}
-        for account in self.accounts:
+        for account in self.client.get_accounts():
             currency = account["currency"]
             amount = float(account["available"]) + float(account["hold"])
             if currency in prices:

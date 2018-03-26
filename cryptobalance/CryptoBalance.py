@@ -75,7 +75,6 @@ class CryptoBalance(object):
             "total_current_value": f"${self.total_current_value:.2f}",
             "balance": balance_str,
             "roi": f"{self.roi:.2f}%",
-            "datetime": str(datetime.datetime.now().strftime('%H:%M')),
             "product_values": self.product_values,
         }
 

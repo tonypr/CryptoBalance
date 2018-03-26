@@ -44,6 +44,8 @@
       roi_chart.streamTo(roi_cv, 500);
 
       colors = ["#041027", "#14294F","#324A76","#5B729C", "#9AACCF"];
+      market_color = 'green';
+      badge_color = 'badge-success';
 
       // And for a doughnut chart
       data = {
@@ -94,19 +96,37 @@
           var roi_value = parseFloat(msg.data["roi"].substring(0, msg.data["roi"].length -1));
           roi_values.append(new Date().getTime(), roi_value);
 
+          var prev_badge = badge_color;
           isRed = roi_value < 0;
           if (isRed) {
-            $('#balance').css('color', 'red');
-            $('#roi').css('color', 'red');
-            roi_chart["seriesSet"][0]["options"]["strokeStyle"] = "rgb(255,0,0,1)";
-            roi_chart["seriesSet"][0]["options"]["fillStyle"] = "rgb(255,0,0,0.2)";
+            market_color = 'red';
+            badge_color = 'badge-danger';
+            var red_full = "rgb(255,0,0,1)";
+            var red_light = "rgb(255,0,0,0.2)";
+            roi_chart["seriesSet"][0]["options"]["strokeStyle"] = red_full;
+            roi_chart["seriesSet"][0]["options"]["fillStyle"] = red_light;
 
-            total_value_chart["seriesSet"][0]["options"]["strokeStyle"] = "rgb(255,0,0,1)";
-            total_value_chart["seriesSet"][0]["options"]["fillStyle"] = "rgb(255,0,0,0.2)";
+            total_value_chart["seriesSet"][0]["options"]["strokeStyle"] = red_full;
+            total_value_chart["seriesSet"][0]["options"]["fillStyle"] = red_light;
           } else {
-            $('#balance').css('color', 'green');
-            $('#roi').css('color', 'green');
+            market_color = 'green';
+            badge_color = 'badge-success';
+
+            var green_full = "rgb(0,255,0,1)";
+            var green_light = "rgb(0,255,0,0.2)";
+            roi_chart["seriesSet"][0]["options"]["strokeStyle"] = green_full;
+            roi_chart["seriesSet"][0]["options"]["fillStyle"] = green_light;
+
+            total_value_chart["seriesSet"][0]["options"]["strokeStyle"] = green_full;
+            total_value_chart["seriesSet"][0]["options"]["fillStyle"] = green_light;
           }
+
+          $('#balance').css('color', market_color);
+          $('#roi').css('color', market_color);
+
+          $('#total_current_value_2').removeClass(prev_badge).addClass(badge_color);
+          $('#balance_2').removeClass(prev_badge).addClass(badge_color);
+          $('#roi_2').removeClass(prev_badge).addClass(badge_color);
       });
     });
   </script>
@@ -132,16 +152,16 @@
                     <td><span class="badge badge-primary" id="total_amount_invested"></span></td>
                   </tr>
                   <tr>
-                    <td>Holdings Value</td>
-                    <td><span class="badge badge-danger" id="total_current_value_2"></span></td>
+                    <td>Holdings</td>
+                    <td><span class="badge badge-success" id="total_current_value_2"></span></td>
                   </tr>
                   <tr>
                     <td>Balance</td>
-                    <td><span class="badge badge-danger" id="balance_2"></span></td>
+                    <td><span class="badge badge-success" id="balance_2"></span></td>
                   </tr>
                   <tr>
                     <td>ROI</td>
-                    <td><span class="badge badge-danger" id="roi_2"></span></td>
+                    <td><span class="badge badge-success" id="roi_2"></span></td>
                   </tr>
                 </table>
               </div>

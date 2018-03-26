@@ -28,7 +28,7 @@ def before_server_start(sanic, loop):
 
 @app.route('/')
 async def index(request):
-    with open('templates/index.html') as f:
+    with open('web_ui/templates/index.html') as f:
         return html(f.read())
 
 @sio.on('connect', namespace='/state')
@@ -36,7 +36,7 @@ async def test_connect(sid, environ):
     await sio.emit('state_update', {'data': crypto_balance.state()},
                    namespace='/state')
 
-app.static('/static', './static')
+app.static('/static', 'web_ui/static')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000)
