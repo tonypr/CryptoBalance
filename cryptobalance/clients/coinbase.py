@@ -37,7 +37,5 @@ class CoinbaseClient(CryptoClient):
             total += float(transaction["native_amount"]["amount"])
         return total
 
-
-
     def get_amount_invested(self):
         return sum(self.get_account_total(account) for account in self.accounts)

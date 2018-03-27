@@ -1,4 +1,3 @@
-import time
 class CryptoClient(object):
     def get_amount_invested(self):
         raise NotImplementedError

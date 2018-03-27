@@ -1,15 +1,12 @@
-from jinja2 import Template
 import asyncio
-import json
+import socketio
 
 from cryptobalance import CryptoBalance
 crypto_balance = CryptoBalance("config")
 crypto_balance.update()
 
 from sanic.app import Sanic
-from sanic.response import json, text, html
-
-import socketio
+from sanic.response import html
 
 sio = socketio.AsyncServer(async_mode='sanic')
 app = Sanic()
@@ -17,7 +14,7 @@ sio.attach(app)
 
 async def background_task():
     while True:
-        await sio.sleep(0.1)
+        await sio.sleep(0.01)
         crypto_balance.update()
         await sio.emit('state_update', {'data': crypto_balance.state()},
                        namespace='/state')

@@ -18,8 +18,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     web_ui = args.web_ui
 
-    if not web_ui:
-        cli()
+    if web_ui:
+        from web_ui.app import app
+        app.run(host="0.0.0.0", port=8000)
     else:
-        from web_ui import app
-        app.app.run(host="0.0.0.0", port=8000)
+        cli()
