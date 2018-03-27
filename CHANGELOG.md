@@ -1,5 +1,9 @@
 # CryptoBalance Changelog
 
+## v2.0.0
+
+- Adds a Web UI to the tool
+
 ## v1.1.0
 
 - Adds an auto-generate config feature.

@@ -10,6 +10,9 @@ class CryptoClient(object):
         current_value = self.get_current_value()
         return current_value, amount_invested
 
+    def get_product_values(self):
+        return {}
+
     @staticmethod
     def setup_config(cls):
         import inspect

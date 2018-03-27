@@ -1,4 +1,4 @@
-from CryptoClient import CryptoClient
+from cryptobalance.CryptoClient import CryptoClient
 
 from coinbase.wallet.client import Client
 
@@ -12,6 +12,13 @@ class CoinbaseClient(CryptoClient):
             if account["balance"]["currency"] == PRIMARY_ACCOUNT_CURRENCY:
                 self.account = account
                 break
+
+    def get_product_values(self):
+        values = {}
+        for account in self.accounts:
+            currency = account["balance"]["currency"]
+            values[currency] = float(account["native_balance"]["amount"])
+        return values
 
     def get_current_value(self):
         values = {}

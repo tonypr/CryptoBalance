@@ -37,6 +37,16 @@ Example results:
 
 ![CryptoBalance results](/resources/sample.png?raw=true")
 
+## Web UI
+
+To view the web UI, run:
+
+`python3 main.py --web-ui`
+
+Then open up `http://localhost:8000` in your favorite browser. You'll see a page like this
+
+![CryptoBalance UI](/resources/web-ui-sample.png?raw=true")
+
 ## Security Concerns
 
 You should verify any code that you download online from the internet. I mean, who's to say that running `python3 main.py` doesn't try to install a client on your computer that I control? You should check this code to make sure it meets your standard for what you allow on your computer. Most importantly, you should also be aware of the dependencies of this project. These include:
