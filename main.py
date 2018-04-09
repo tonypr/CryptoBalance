@@ -3,15 +3,6 @@ import time
 
 CONFIGS_DIR = "config"
 
-def cli():
-    from cryptobalance import CryptoBalance
-    crypto_balance = CryptoBalance(CONFIGS_DIR)
-    crypto_balance.update()
-    if len(crypto_balance.clients) > 0:
-        print(crypto_balance.state())
-    else:
-        print("No clients were setup. Exiting.")
-
 def web():
     try:
         import subprocess
@@ -24,12 +15,4 @@ def web():
             proc1.kill()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='CLI tool that collects your portfolio data from GDAX/Coinbase.')
-    parser.add_argument('--web-ui', action="store_true", default=False)
-    args = parser.parse_args()
-
-    proc1 = None
-    if args.web_ui:
-        web()
-    else:
-        cli()
+    web()
