@@ -1,5 +1,10 @@
 # CryptoBalance Changelog
 
+## v2.0.1
+
+- Minor improvements to Web UI.
+- Removes client option.
+
 ## v2.0.0
 
 - Adds a Web UI to the tool
