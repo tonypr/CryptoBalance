@@ -33,17 +33,7 @@ You'll then have to replace the TODOs in the files in order for the tool to work
 
 After filling in the TODOs, you can re-run the previous command and you'll be able to see the results.
 
-Example results:
-
-![CryptoBalance results](/resources/sample.png?raw=true")
-
-## Web UI
-
-To view the web UI, run:
-
-`python3 main.py --web-ui`
-
-Then open up `http://localhost:8000` in your favorite browser. You'll see a page like this
+Once setup, you can re-run the code and open up `http://localhost:8000` in your favorite browser. You'll see a page like this
 
 ![CryptoBalance UI](/resources/web-ui-sample.png?raw=true")
 

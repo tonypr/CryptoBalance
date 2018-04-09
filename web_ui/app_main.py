@@ -1,9 +1,5 @@
-import asyncio
 import socketio
-
-from cryptobalance import CryptoBalance
-crypto_balance = CryptoBalance("config")
-crypto_balance.update()
+import requests
 
 from sanic.app import Sanic
 from sanic.response import html
@@ -12,11 +8,17 @@ sio = socketio.AsyncServer(async_mode='sanic')
 app = Sanic()
 sio.attach(app)
 
+def get_state():
+    with requests.get(f'http://127.0.0.1:9000/state') as response:
+        return response.json()
+
+global_state = None
+
 async def background_task():
     while True:
-        await sio.sleep(0.01)
-        crypto_balance.update()
-        await sio.emit('state_update', {'data': crypto_balance.state()},
+        await sio.sleep(1)
+        global_state = get_state()
+        await sio.emit('state_update', global_state,
                        namespace='/state')
 
 @app.listener('before_server_start')
@@ -30,7 +32,8 @@ async def index(request):
 
 @sio.on('connect', namespace='/state')
 async def test_connect(sid, environ):
-    await sio.emit('state_update', {'data': crypto_balance.state()},
+    global_state = get_state()
+    await sio.emit('state_update', global_state,
                    namespace='/state')
 
 app.static('/static', 'web_ui/static')
