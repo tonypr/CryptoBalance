@@ -13,6 +13,12 @@ function myYRangeFunction(range) {
   return {min: min, max: max};
 }
 
+function roiRangeFunction(range) {
+  var min = range.min - 1;
+  var max = range.max + 1;
+  return {min: min, max: max};
+}
+
 function update_state(msg) {
     $('#total_amount_invested').text(msg.data["total_amount_invested"]);
     $('#total_current_value').text(msg.data["total_current_value"]);
@@ -110,7 +116,7 @@ socket.on('connect', function(msg) {
   total_value_chart.streamTo(total_value_cv, 500);
 
   roi_values = new TimeSeries();
-  roi_chart = new SmoothieChart({millisPerPixel:100,tooltip:true,yRangeFunction:myYRangeFunction});
+  roi_chart = new SmoothieChart({millisPerPixel:100,tooltip:true,yRangeFunction:roiRangeFunction});
   roi_cv = document.getElementById('roi_value');
   fitToContainer(roi_cv);
   roi_chart.addTimeSeries(roi_values, { strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 2 });

@@ -19,7 +19,8 @@ class GdaxClient(CryptoClient):
     def get_product_prices(self):
         product_prices = {}
         for product_id in self.ids:
-            value = self.client.get_product_ticker(product_id=product_id)["price"]
+            value = self.client.get_product_ticker(product_id=product_id)
+            value = value["price"]
             product_prices[product_id[:3]] = float(value)
         return product_prices
 
